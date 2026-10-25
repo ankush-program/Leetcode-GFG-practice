@@ -6,7 +6,7 @@ int main(){
     int n;
     std::cin>> n;
 
-    #define M1
+    #ifdef M1
     if(n>0 && n<=6)
     std::cout << "The number opposite to "<< n <<" on Die is: "<< 7-n;
     #endif
