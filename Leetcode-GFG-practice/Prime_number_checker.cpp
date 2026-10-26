@@ -13,7 +13,7 @@ int main(){
         return 0;
     }
 
-    #ifdef M1       //Standard
+    #ifdef M1       //Brute Force
     for(int i=2;i<n;i++){
         if(n%i==0){
             cout<< n << " is not prime";
@@ -23,8 +23,8 @@ int main(){
     cout<< n <<" is Prime";
     #endif
 
-    #ifdef M2       //checking till sqrt(n) --> Halfing the no. of processes
-    for(int i=2 ; i <= sqrt(n) ; i++){    //or --> i*i<=n
+    #ifdef M2       //checking till sqrt(n) --> reducing the no. of processes
+    for(int i=2 ; i <= sqrt(n) ; i++){    //or --> i*i <= n
         if(n%i==0){
             cout<< n << " is not prime";
             return 0;
