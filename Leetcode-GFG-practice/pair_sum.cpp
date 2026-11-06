@@ -3,17 +3,17 @@
 #define M2      //M1 or M2
 
 int main(){
+    //Given Range of elements: (INT_MIN,INT_MAX)
+
     #ifdef M1       //Unsorted Array
     std::vector<int> arr={1,6,7,4,8,9,10,5,3,2};
     int s=9, n=arr.size();
     std::vector<std::vector<int>> ans;
     
     for(int i=0; i<n; i++){
-        for(int j=0; j<n; j++){
-            if((arr[i]+arr[j]==s)&&(i!=j)){
+        for(int j=i+1; j<n; j++){
+            if(arr[i]+arr[j]==s){
                 ans.push_back({arr[i],arr[j]});
-                arr[i]=INT_MAX;
-                arr[j]=INT_MIN;
                 break;
             }
         }
