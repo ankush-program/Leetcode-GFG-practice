@@ -14,6 +14,16 @@ public:
         }
         return {};
     }
+
+    vector<int> twoSum_sorted(vector<int>& numbers, int target) {
+        int i=0,j=numbers.size()-1;
+        while(i<j){
+            if(numbers[i]+numbers[j]<target) i++;
+            else if(numbers[i]+numbers[j]>target) j--;
+            else if(numbers[i]+numbers[j]==target) return {i,j};
+        }
+        return {};
+    }
 };
 
 int main(){
@@ -21,6 +31,11 @@ int main(){
     Solution s;
     vector<int> sa;
     sa = s.twoSum(arr,9);
-    std::cout << sa[0]<<' '<< sa[1];
+    std::cout << sa[0]<<' '<< sa[1]<<'\n';
+
+    std::vector<int> arr2={1,3,4,6,7,8,9,10,11,13};
+    sa = s.twoSum_sorted(arr2,12);
+    std::cout << sa[0]<<' '<< sa[1]<<'\n';
+
     return 0;
 }
