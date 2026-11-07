@@ -21,7 +21,9 @@ class Solution{
             sort(arr);
             int start=0, end= arr.size() - 1, mid=0;
             while(start<=end){
-                mid = (start+end)/2;
+                // mid=(start+end)/2;
+                mid = (start)+(end-start)/2;    //To avoid integer overflow
+
                 if(arr[mid]==s) return mid;
                 else if(arr[mid]>s){
                     end=mid-1;
