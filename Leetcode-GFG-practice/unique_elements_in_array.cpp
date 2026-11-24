@@ -20,6 +20,7 @@ int main(){
     #ifdef M1
     int flag=1, uarr[30]={0}, k=0;
     for(int i=0;i<size;i++){
+        flag=1;
         for(int j=0;j<size;j++){
             if((arr[i]==arr[j])&&(i!=j)){
                 flag=0;
