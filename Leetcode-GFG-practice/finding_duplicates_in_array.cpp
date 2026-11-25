@@ -1,23 +1,30 @@
 #include <iostream>
-#define M2      // M1 or M2
+#define M1      // M1 or M2
 
 int main(){
 
     #ifdef M1
-    int arr[] = {3,8,-7,8,9,6,4}, size = 7;
-    int duparr[7], k=0;
+    int arr[] = {3,8,-7,8,9,6,4}, n = 7;
 
-    for(int i=0; i<size; i++){
-        for(int j=i+1; j<size; j++){
-            if(arr[i]==arr[j]){
-                duparr[k]=arr[i];
+    int uarr[30],k=-1, flag=1;
+    for(int i=0;i<n;i++){
+        flag=1;
+        for(int j=0;j<=k;j++){
+            if(arr[i]==uarr[j]){
+                flag=0; break;
+            }
+        }
+        if(flag==1)
+        for(int j=i+1;j<n;j++){
+            if((arr[i]==arr[j])&&(i!=j)){
                 k++;
+                uarr[k]=arr[i];
+                break;
             }
         }
     }
-
-    for(int i=0; i<k; i++){
-        std::cout << duparr[i]<<' ';
+    for(int i=0;i<=k;i++){
+        std::cout << uarr[i] << ' ';
     }
     #endif
 
