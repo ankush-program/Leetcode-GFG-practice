@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
-
+#define M2
 using namespace std;
 
 class Solution{
     public:
         pair<int,int> first_last_pos(vector<int> &arr, int s){
 
+            #ifdef M1
             // for Leftmost/First
             int start=0, end=arr.size()-1,mid=0, ans1=-1, ans2=-1;
             while(start<=end){
@@ -32,6 +33,19 @@ class Solution{
             }
 
             return{ans1,ans2};
+            #endif
+
+            #ifdef M2
+            int i=0, j=arr.size()-1;
+                while(i<j){
+                    if(arr[i]<s) i++;
+                    else if(arr[j]>s) j--;
+                    if((arr[i]==s)&&(arr[j]==s)){
+                        return {i,j};
+                    }
+                }
+                return {};
+            #endif
         }
 };
 int main(){
